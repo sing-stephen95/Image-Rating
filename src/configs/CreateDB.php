@@ -6,7 +6,7 @@
 	
 	mysqli_query($conn, "CREATE DATABASE HW3");
 	
-	$conn = mysqli_connect($server, 'root', '', $db);
+	$conn2 = mysqli_connect($server, $user, $pwd, $db);
 	
 	$createUserTable = "CREATE TABLE USER(
 		u_id INT NOT NULL,
@@ -29,8 +29,8 @@
 
 	
 	
-	mysqli_query($conn, $createUserTable);
-	mysqli_query($conn, $createPostTable);
+	mysqli_query($conn2, $createUserTable);
+	mysqli_query($conn2, $createPostTable);
 
  
  
