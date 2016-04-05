@@ -1,10 +1,13 @@
-<? php
+<?php
  
 	require_once('./Config.php');
-	require_once('../mySqlConnection.php');
 	
-	$conn = mysqli_connect($server, $user, $pwd, $db);
-
+	$conn = mysqli_connect($server, $user, $pwd);
+	
+	mysqli_query($conn, "CREATE DATABASE HW3");
+	
+	$conn = mysqli_connect($server, 'root', '', $db);
+	
 	$createUserTable = "CREATE TABLE USER(
 		u_id INT NOT NULL,
 		f_name VARCHAR(50) NOT NULL,
@@ -26,8 +29,8 @@
 
 	
 	
-	mysqli_query($createUserTable);
-	mysqli_query($createPostTable);
+	mysqli_query($conn, $createUserTable);
+	mysqli_query($conn, $createPostTable);
 
  
  
