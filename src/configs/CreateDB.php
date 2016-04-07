@@ -4,15 +4,17 @@
 	
 	$conn = mysqli_connect($server, $user, $pwd);
 	
+	mysqli_query($conn, "DROP DATABASE IF EXISTS HW3");
 	mysqli_query($conn, "CREATE DATABASE HW3");
 	
 	$conn2 = mysqli_connect($server, $user, $pwd, $db);
 	
 	$createUserTable = "CREATE TABLE USER(
-		u_id INT NOT NULL,
+		u_id INT NOT NULL AUTO_INCREMENT,
 		f_name VARCHAR(50) NOT NULL,
 		l_name VARCHAR(50) NOT NULL,
 		email VARCHAR(255) NOT NULL,
+		u_name VARCHAR(50) NOT NULL,
 		u_pwd VARCHAR(50) NOT NULL,
 		PRIMARY KEY (u_id)
 	)";
