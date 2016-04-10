@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-	<head>
+namespace Image_Rating;
 
-	</head>
+require_once "src/controllers/MainPageController.php";
 
-	<body>
-	<?php
+define("NS_BASE", "Image_Rating\\");
+define(NS_BASE . "NS_CONTROLLERS", "Image_Rating\\controllers\\");
+define(NS_BASE . "NS_VIEWS", "Image_Rating\\views\\");
 
-	header("Location: src/models/index.html"); 
+$allowed_controllers = ["signup", "signin", "upload", "main"];
 
-	?>
+if(!empty($_REQUEST['c']) && in_array($_REQUEST['c'], $allowed_controllers)){
+	$controller_name = NS_CONTROLLERS . ucfirst($_REQUEST['c'])."Controller";
+}	else{
+	$controller_name = NS_CONTROLLERS . "MainPageController";
+}
 	
-	</body>
+$controller = new $controller_name();
 
-</html>
+$controller->processRequest();
+
+
