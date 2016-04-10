@@ -5,6 +5,10 @@ namespace Image_Rating\controllers;
 use Image_Rating as B;
 
 abstract class Controller{
+	
+	public abstract function processRequest();
+
+	
 	public function view($name){
 		static $loaded_views = [];
 		if(!empty($loaded_views[$name])){

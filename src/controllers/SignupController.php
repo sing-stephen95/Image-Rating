@@ -1,6 +1,8 @@
 <?php
+namespace Image_Rating\controllers;
 
-	require_once "../models/Database.php";
+require_once "Controller.php";
+/*	require_once "../models/Database.php";
 	
 	if(isset($_POST['Submit'])){
 		$first = $_POST['fname'];
@@ -21,5 +23,11 @@
 			echo $conn->error;
 		}
 		
+	}*/
+class SignupController extends Controller{
+	function processRequest(){
+		$data = [];
+		
+		$this->view("signup")->render($data);	
 	}
-?>
+}
