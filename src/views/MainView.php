@@ -18,34 +18,37 @@ class MainView extends View{
 
 			<h1>Image Rating</h1>
 			
-			<form>
+			<form method="post" action="./index.php?c=signup">
 				<input type="submit" id="signup" name="signup" value="Sign Up"/>
+			</form>
+			
+			<form method="post" action="./index.php?c=signin">
 				<input type="submit" id="signin" name="signin" value="Sign In"/>
 			</form>
-			<?php
-			if(!empty($_REQUEST['signup'])){
-				$_REQUEST['c'] = "signup";
-				$full_name = B\NS_CONTROLLERS. ucfirst($_REQUEST['c']). "Controller";
-				$c_folder = __DIR__ . "/../controllers/";
-				$path_name = $c_folder . $_REQUEST['c']. "Controller.php";
-				if (file_exists($path_name)) {
-					require_once $path_name;
-					$controller = new $full_name();
-					$controller->processRequest();
-				}
-			} else if(!empty($_REQUEST['signin'])){
-				$_REQUEST['c'] = "signin";
-				$full_name = B\NS_CONTROLLERS. ucfirst($_REQUEST['c']). "Controller";
-				$c_folder = __DIR__ . "/../controllers/";
-				$path_name = $c_folder . $_REQUEST['c']. "Controller.php";
-				if (file_exists($path_name)) {
-					require_once $path_name;
-					$controller = new $full_name();
-					$controller->processRequest();
-				}
-			}
-			else{
-			?>
+	//		<?php
+	//		if(!empty($_REQUEST['signup'])){
+	//			$_REQUEST['c'] = "signup";
+	//			/*$full_name = B\NS_CONTROLLERS. ucfirst($_REQUEST['c']). "Controller";
+	//			$c_folder = __DIR__ . "/../controllers/";
+	//			$path_name = $c_folder . $_REQUEST['c']. "Controller.php";
+	//			if (file_exists($path_name)) {
+	//				require_once $path_name;
+	//				$controller = new $full_name();
+	//				$controller->processRequest();
+	//			}*/
+	//		} else if(!empty($_REQUEST['signin'])){
+	//			$_REQUEST['c'] = "signin";
+	//			$full_name = B\NS_CONTROLLERS. ucfirst($_REQUEST['c']). "Controller";
+	//			$c_folder = __DIR__ . "/../controllers/";
+	//			$path_name = $c_folder . $_REQUEST['c']. "Controller.php";
+	//			if (file_exists($path_name)) {
+	//				require_once $path_name;
+	//				$controller = new $full_name();
+	//				$controller->processRequest();
+	//			}
+	//		}
+	//		else{
+	//		?>
 			
 
 
@@ -58,9 +61,9 @@ class MainView extends View{
 
 
 			/*Up to ten image items should be displayed beneath this header. These items should be the most popular uploaded items ranked from most to least popular, ties being broken by recentness with more recent on top.*/
-			<?php
-			}
-			?>
+	//		<?php
+	//		}
+	//		?>
 
 
 		</body>
