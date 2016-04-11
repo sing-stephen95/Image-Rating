@@ -15,7 +15,7 @@ class SignupView extends View{
 
 			<h1 align="center">Sign Up</h1>
 
-			<form id="signup" action="../controllers/register.php" method="post" align="center">
+			<form id="signup" action="./src/models/register.php" method="post" align="center">
 				<fieldset>
 				
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
