@@ -8,6 +8,30 @@ abstract class Controller{
 	
 	public abstract function processRequest();
 
+	public function sanitize($request_field, $type)
+    {
+        switch($type) {
+            case "email":
+                $out = filter_input(INPUT_GET,
+                    $request_field, FILTER_SANITIZE_EMAIL);
+                if ($out === false) {
+                    $out = filter_input(INPUT_POST,
+                        $request_field, FILTER_SANITIZE_EMAIL);
+                }
+                break;
+            case "signup":
+                $out = filter_input(INPUT_GET,
+                    $request_field, FILTER_SANITIZE_STRING);
+                if ($out === false) {
+                    $out = filter_input(INPUT_POST,
+                        $request_field, FILTER_SANITIZE_STRING);
+                }
+                break;
+            default:
+                $out = "";
+        }
+        return $out;
+    }
 	
 	public function view($name){
 		static $loaded_views = [];

@@ -7,7 +7,7 @@ session_start();
 use Image_Rating as B;
 
 require_once "View.php";
-//require_once "../../models/Database.php";
+require_once "./src/models/Database.php";
 
 class SigninView extends View{
 
@@ -44,26 +44,26 @@ class SigninView extends View{
 			$user_name = $_POST['username'];
 			$pass = $_POST['password'];
 			
-			$check_log="SELECT * FROM USERS WHERE u_name='$user_name' AND u_pwd='$pass'";
+			$check_log="SELECT * FROM USER WHERE u_name='$user_name' AND u_pwd='$pass'";
 			
-			$nm_name = B\NS_CONTROLLERS."Database";
+			$nm_name = "Image_Rating\\models\\Database";
 			$db = new $nm_name();
 			$conn = $db->connect();
-			$check = mqsqli_query($conn, $check_log);
+			$check = mysqli_query($conn, $check_log);
 			
-			if(mysqli_num_rows($run))  
-			{  
-			echo "<script>window.open('welcome.php','_self')</script>";  
-	  
-			$_SESSION['email']=$user_email;//here session is used and value of $user_email store in $_SESSION.  
-  
+			
+			if(mysqli_num_rows($check))  {  
+			
+			$_SESSION['login'] = $user_name;
+			echo "<script>alert('Log in success!')</script>";			
 			}  
 			else{
-				echo "<script>alert('Email or password is incorrect!')</script>";
+				echo "<script>alert('Username or password is incorrect!')</script>";
 			}
+
 		}
 		else{
-			echo "fail";
+			echo "Not logged in";
 		}
 	}
 	

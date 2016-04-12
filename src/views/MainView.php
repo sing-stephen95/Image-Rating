@@ -7,6 +7,7 @@ use Image_Rating as B;
 class MainView extends View{
 
 	public function render($data){
+		
 		?>
 		<!DOCTYPE html><html>
 		<head>
@@ -16,7 +17,7 @@ class MainView extends View{
 
 		<body>
 
-			<h1>Image Rating</h1>
+			<h1 align="center">Image Rating</h1>
 			
 			<form method="post" action="./index.php?c=signup">
 				<input type="submit" id="signup" name="signup" value="Sign Up"/>
@@ -25,7 +26,7 @@ class MainView extends View{
 			<form method="post" action="./index.php?c=signin">
 				<input type="submit" id="signin" name="signin" value="Sign In"/>
 			</form>
-	//		<?php
+			<?php
 	//		if(!empty($_REQUEST['signup'])){
 	//			$_REQUEST['c'] = "signup";
 	//			/*$full_name = B\NS_CONTROLLERS. ucfirst($_REQUEST['c']). "Controller";
@@ -48,7 +49,7 @@ class MainView extends View{
 	//			}
 	//		}
 	//		else{
-	//		?>
+			?>
 			
 
 
@@ -61,9 +62,9 @@ class MainView extends View{
 
 
 			/*Up to ten image items should be displayed beneath this header. These items should be the most popular uploaded items ranked from most to least popular, ties being broken by recentness with more recent on top.*/
-	//		<?php
+			<?php
 	//		}
-	//		?>
+			?>
 
 
 		</body>

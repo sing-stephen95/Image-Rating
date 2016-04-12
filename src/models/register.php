@@ -21,5 +21,7 @@ require_once "../models/Database.php";
 			echo $conn->error;
 		}
 		
+		header("Location:../../index.php");
+		//echo "<script>alert('Email or password is incorrect!')</script>";
 	}
 	?>
